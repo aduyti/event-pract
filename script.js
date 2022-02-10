@@ -9,24 +9,32 @@ inputBtn.addEventListener("click", function () {
             <td>${count}</td>
             <td>${inputText.value}</td>
             <td><button class="delete-btn btn btn-danger">Delete</button></td>`;
+
+
+        newRow.addEventListener("click", function (event) {
+            if (event.target.nodeName == "BUTTON") {
+                document.getElementById("table-content").removeChild(newRow);
+            }
+        })
+
         document.getElementById("table-content").appendChild(newRow);
         inputText.value = "";
 
-        const detectButton = document.getElementsByClassName("delete-btn");
-        for (const btn of detectButton) {
-            // console.log(btn);
-            btn.addEventListener("click", function (event) {
-                // console.log(btn);
-                const current = event.target.parentNode.parentNode;
-                console.log(current.nodeName);
-                if (current.nodeName == "TR") {
-                    current.parentNode.removeChild(current);
-                    break;
-                }
-                // console.log(event.target.parentNode.parentNode.parentNode);
-                // console.log(event.target.parentNode.parentNode);
-            })
-        }
+        // const detectButton = document.getElementsByClassName("delete-btn");
+        // for (const btn of detectButton) {
+        //     // console.log(btn);
+        //     btn.addEventListener("click", function (event) {
+        //         // console.log(btn);
+        //         const current = event.target.parentNode.parentNode;
+        //         console.log(current.nodeName);
+        //         if (current.nodeName == "TR") {
+        //             current.parentNode.removeChild(current);
+        //             // break;
+        //         }
+        //         // console.log(event.target.parentNode.parentNode.parentNode);
+        //         // console.log(event.target.parentNode.parentNode);
+        //     })
+        // }
     }
 })
 
