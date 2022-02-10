@@ -17,7 +17,12 @@ inputBtn.addEventListener("click", function () {
             // console.log(btn);
             btn.addEventListener("click", function (event) {
                 // console.log(btn);
-                event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode);
+                const current = event.target.parentNode.parentNode;
+                console.log(current.nodeName);
+                if (current.nodeName == "TR") {
+                    current.parentNode.removeChild(current);
+                    break;
+                }
                 // console.log(event.target.parentNode.parentNode.parentNode);
                 // console.log(event.target.parentNode.parentNode);
             })
